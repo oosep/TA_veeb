@@ -1,0 +1,29 @@
+{
+  "name": "ta_veeb_oosep",
+  "version": "1.0.0",
+  "description": "Veebiprogrammeerimise kursuse veeb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://oosep@github.com/oosep/TA_veeb.git"
+  },
+  "keywords": [
+    "õppetöö",
+    "node.js",
+    "express.js",
+    "Tallinna",
+    "Ülikool"
+  ],
+  "author": "Joosep Tawan Turba",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oosep/TA_veeb/issues"
+  },
+  "homepage": "https://github.com/oosep/TA_veeb#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
