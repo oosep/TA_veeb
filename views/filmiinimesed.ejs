@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="utf-8">
+  <title>Joosep, veebiprogrammeerimine</title>
+</head>
+<body>
+  <img src="/images/vp_banner_2025_TA.jpg" alt="Kursuse bänner">
+  <h1>Joosep, veebiprogrammeerimine</h1>
+  <p>See leht on loodud <a href="https://www.tlu.ee">Tallinna Ülikoolis</a> veebiprogrammeerimise kursusel ja ei oma mõistlikku sisu.</p>
+  <hr> 
+  <ul>
+    <li><a href="/">Avaleht</a></li>
+    <li><a href="/Eestifilm">Eesti filmi avaleht</a></li>
+  </ul>
+  <hr>
+
+  <h2>Eesti filmiinimesed</h2>
+  <ol>
+    <% personList.forEach(function(listItem) { %>
+      <li>
+        <%= listItem.first_name %> <%= listItem.last_name %>,
+        sündinud <%= listItem.born %>
+        <% if (listItem.deceased) { %>
+          – surnud <%= listItem.deceased %>
+        <% } %>
+      </li>
+    <% }); %>
+  </ol>
+
+</body>
+</html>
+

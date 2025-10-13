@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+	<meta charset="UTF-8">
+	<title>Lisa uus amet</title>
+</head>
+<body>
+	<h1>Lisa uus amet</h1>
+	<p><%= notice %></p>
+	<form method="POST" action="/Eestifilm/ametid_add">
+		<label for="positionNameInput">Ameti nimetus:</label><br>
+		<input type="text" id="positionNameInput" name="positionNameInput" placeholder="nt Näitleja"><br><br>
+
+		<label for="positionDescriptionInput">Kirjeldus:</label><br>
+		<textarea id="positionDescriptionInput" name="positionDescriptionInput" cols="80" rows="5" placeholder="Ameti lühikirjeldus..."></textarea><br><br>
+
+		<input type="submit" value="Salvesta">
+	</form>
+	<p><a href="/Eestifilm/ametid">Tagasi ametite lehele</a></p>
+</body>
+</html>
