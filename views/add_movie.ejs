@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <title>Lisa film</title>
+</head>
+<body>
+    <h1>Lisa uus film</h1>
+    <form action="/Eestifilm/movies/add" method="POST">
+        <div>
+            <label for="title">Pealkiri:</label>
+            <input type="text" id="title" name="title" required>
+        </div>
+        <div>
+            <label for="release_year">Aasta:</label>
+            <input type="number" id="release_year" name="release_year" min="1900" max="2030" required>
+        </div>
+        <div>
+            <label for="duration">Kestus (min):</label>
+            <input type="number" id="duration" name="duration" min="1" required>
+        </div>
+        <div>
+            <label for="description">Kirjeldus:</label>
+            <textarea id="description" name="description" rows="4"></textarea>
+        </div>
+        <button type="submit">Lisa film</button>
+    </form>
+    <p><a href="/Eestifilm">Tagasi</a></p>
+</body>
+</html>

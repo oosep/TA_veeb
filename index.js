@@ -1,3 +1,7 @@
+const positionRoutes = require('./routes/positions');
+const movieRoutes = require('./routes/movies');
+const connectionRoutes = require('./routes/connections');
+const visitController = require('./controllers/visitController');
 const express = require("express");
 const fs = require("fs");
 const bodyparser = require("body-parser");
@@ -8,7 +12,9 @@ const textRef = "public/txt/vanasonad.txt";
 const app = express();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-app.use(bodyparser.urlencoded({extended: false}));
+//kui tuleb vormist ainult tekst, siis false, muidu true
+app.use(bodyparser.urlencoded({extended: true}));
+
 
 const dbConf = {
 	host: dbInfo.configData.host,
@@ -118,5 +124,19 @@ app.post("/Eestifilm/ametid_add", (req, res) => {
 //Eesti filmi marsruudid
 const eestifilmRouter = require("./routes/eestifilmRoutes");
 app.use("/Eestifilm", eestifilmRouter);
+
+// Uued marsruudid
+app.use('/Eestifilm', positionRoutes);
+app.use('/Eestifilm', movieRoutes);
+app.use('/Eestifilm', connectionRoutes);
+
+// Külastuste marsruudid
+app.get('/visits', visitController.showVisitForm);
+app.post('/visits', visitController.registerVisit);
+app.get('/visits/log', visitController.showVisitLog);
+
+//galerii fotode üleslaadimine
+const photoupRouter = require("./routes/photoupRoutes");
+app.use("/galleryphotoupload", photoupRouter);
 
 app.listen(5109);

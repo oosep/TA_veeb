@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <title>Lisa seos</title>
+</head>
+<body>
+    <h1>Lisa filmiseos</h1>
+    <form action="/Eestifilm/connections/add" method="POST">
+        <div>
+            <label for="personSelect">Isik:</label>
+            <select id="personSelect" name="personSelect" required>
+                <option selected disabled>Vali isik</option>
+                <% persons.forEach(person => { %>
+                    <option value="<%= person.id %>"><%= person.first_name %> <%= person.last_name %></option>
+                <% }); %>
+            </select>
+        </div>
+        
+        <div>
+            <label for="movieSelect">Film:</label>
+            <select id="movieSelect" name="movieSelect" required>
+                <option selected disabled>Vali film</option>
+                <% movies.forEach(movie => { %>
+                    <option value="<%= movie.id %>"><%= movie.title %></option>
+                <% }); %>
+            </select>
+        </div>
+        
+        <div>
+            <label for="positionSelect">Amet:</label>
+            <select id="positionSelect" name="positionSelect" required>
+                <option selected disabled>Vali amet</option>
+                <% positions.forEach(position => { %>
+                    <option value="<%= position.id %>"><%= position.position_name %></option>
+                <% }); %>
+            </select>
+        </div>
+        
+        <div id="roleField" style="display: none;">
+            <label for="role">Roll (kui näitleja):</label>
+            <input type="text" id="role" name="role">
+        </div>
+        
+        <button type="submit">Lisa seos</button>
+    </form>
+
+    <script>
+        document.getElementById('positionSelect').addEventListener('change', function() {
+            const roleField = document.getElementById('roleField');
+            const selectedText = this.options[this.selectedIndex].text;
+            if (selectedText.toLowerCase().includes('näitleja')) {
+                roleField.style.display = 'block';
+            } else {
+                roleField.style.display = 'none';
+            }
+        });
+    </script>
+    
+    <p><a href="/Eestifilm">Tagasi</a></p>
+</body>
+</html>

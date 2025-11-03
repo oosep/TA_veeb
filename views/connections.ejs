@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <title>Filmiseosed</title>
+</head>
+<body>
+    <h1>Filmiseosed inimeste kaupa</h1>
+    
+    <% connections.forEach(connection => { %>
+        <div class="person-connections">
+            <h3><%= connection.person %></h3>
+            <ul>
+                <% connection.connections.forEach(conn => { %>
+                    <li>
+                        <%= conn.movie %> (<%= conn.year %>) - <%= conn.position %>
+                        <% if (conn.role) { %> (roll: <%= conn.role %>)<% } %>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+    <% }); %>
+    
+    <p><a href="/Eestifilm">Tagasi</a></p>
+</body>
+</html>
